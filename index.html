@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DuniaBuku.com</title>
+    <link rel="icon" type="image/png" href="Logo1.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      /*Navbar*/
+      .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+      }
+      .btn-signup {
+        background-color: #0048a5;
+        color: white;
+        border: 1px solid #0048a5;
+        transition: all 0.3s ease;
+      }
+
+      .btn-signup:hover,
+      .btn-signup:focus {
+        background-color: white;
+        color: #0048a5;
+        border-color: #0048a5;
+      }
+
+      .btn-login {
+        background-color: white;
+        color: #0048a5;
+        border: 1px solid #0048a5;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login:hover,
+      .btn-login:focus {
+        background-color: #0048a5;
+        color: white;
+        border-color: #0048a5;
+      }
+
+      /*Carousel*/
+      .carousel-caption-bottom {
+        position: absolute;
+        bottom: 20px;
+        left: 80px;
+        z-index: 10;
+      }
+
+      /* Selamat Datang */
+      .welcome-section {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #0048a5; /* warna biru seperti di gambar */
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-size: 20px;
+        color: #333333;
+        font-weight: 500;
+      }
+
+      /* CARD 3 + 1 */
+      .custom-promo {
+        background-color: #cacecf;
+        color: white;
+      }
+      .book-card {
+        color: white;
+        padding: 20px;
+        text-align: center;
+        height: 100%;
+      }
+      .red {
+        background-color: #da2d31;
+      }
+      .green {
+        background-color: #fbbf24;
+      }
+      .blue {
+        background-color: #143d73;
+      }
+      .book-card img {
+        max-height: 200px;
+        margin-bottom: 10px;
+      }
+
+      /*card*/
+      .book-image {
+        height: 250px;
+        object-fit: cover;
+      }
+      .badge-custom {
+        font-size: 0.8em;
+        margin-right: 5px;
+      }
+      .book-author {
+        font-size: 0.75rem;
+        color: #666;
+      }
+      .book-title {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-top: 0.25rem;
+      }
+      .book-rating {
+        color: #ff9900;
+        font-size: 0.85rem;
+      }
+      .book-readers {
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      /*Author*/
+      .author-card {
+        border-radius: 15px;
+        padding: 1.5rem;
+        color: #000;
+        height: 100%;
+        transition: transform 0.3s;
+      }
+
+      .author-card:hover {
+        transform: scale(1.02);
+      }
+
+      .bg-lightblue {
+        background-color: #d3ebf1;
+      }
+
+      .bg-lightyellow {
+        background-color: #fdf1c4;
+      }
+
+      .bg-lightpeach {
+        background-color: #f9d4c2;
+      }
+
+      .author-img {
+        max-height: 200px;
+        object-fit: contain;
+      }
+
+      /* Card Buku Background Biru */
+      .gradient-section {
+        background: linear-gradient(180deg, #1d72b8 0%, #269ddf 100%);
+        position: flex;
+        color: white;
+        overflow: hidden;
+      }
+
+      .gradient-section::before,
+      .gradient-section::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 60px;
+      }
+
+      .gradient-section::before {
+        top: -60px;
+        transform: rotate(180deg);
+      }
+
+      .gradient-section::after {
+        bottom: 0;
+        z-index: 0;
+      }
+
+      /* Blog */
+      .blog-section {
+        margin-top: -20px; /* naikkan sedikit untuk menyatu elegan dengan gelombang putih */
+        background-color: white;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #fefefe;
+        border-top: 1px solid #ddd;
+        font-family: sans-serif;
+        color: #333;
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px 60px;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        flex: 1 1 300px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo img {
+        width: 80px;
+        margin-right: 20px;
+      }
+
+      .footer-logo h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .footer-logo p {
+        margin: 5px 0 0 0;
+        font-size: 14px;
+      }
+
+      .footer-column {
+        flex: 1 1 200px;
+        margin-bottom: 20px;
+      }
+
+      .footer-column h4 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 6px;
+      }
+
+      .footer-column a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .footer-column a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        background-color: #0b5ea2;
+        padding: 3px 0;
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="HomeUser.html">
+          <img src="Logo1.png" width="65" height="65" />
+          <span style="font-weight: bold; color: #0b5ea2">DUNIA BUKU</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="HomeUser.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUser.html">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Category
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Novel.html">Novel</a></li>
+                <li><a class="dropdown-item" href="Sd.html">SD</a></li>
+                <li><a class="dropdown-item" href="SMP.html">SMP</a></li>
+                <li><a class="dropdown-item" href="SMA.html">SMA</a></li>
+                <li>
+                  <a class="dropdown-item" href="BukuNonTeks.html"
+                    >Buku NonTeks</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item me-2">
+              <a class="nav-link" href="ContactUser.html">Contact</a>
+            </li>
+          </ul>
+          <a href="SignUpUser.html" class="btn btn-signup me-2">Sign Up</a>
+          <a href="LoginUser.html" class="btn btn-login">Log In</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Tutup -->
+
+    <!-- Carousel -->
+    <div
+      class="px-4 mt-5 pt-5"
+      style="max-width: 100%; padding-left: 60px; padding-right: 60px"
+    >
+      <div
+        id="carouselExampleInterval"
+        class="carousel slide rounded-4 overflow-hidden"
+        data-bs-ride="carousel"
+        style="height: 500px"
+      >
+        <div class="carousel-inner h-100">
+          <div
+            class="carousel-item active h-100 position-relative"
+            data-bs-interval="10000"
+          >
+            <img
+              src="carousel Fix1.png"
+              class="d-block w-100 h-100 object-fit-cover"
+              alt="picture"
+            />
+            <div class="carousel-caption-bottom text-center">
+              <a href="AboutUser.html" class="btn btn-primary px-4 py-2"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div
+            class="carousel-item h-100 position-relative"
+            data-bs-interval="2000"
+          >
+            <img
+              src="carousel Fix2.png"
+              class="d-block w-100 h-100 object-fit-cover"
+              alt="picture"
+            />
+            <div class="carousel-caption-bottom text-center">
+              <a href="AboutUser.html" class="btn btn-primary px-4 py-2"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item h-100 position-relative">
+            <img
+              src="carousel (3).png"
+              class="d-block w-100 h-100 object-fit-cover"
+              alt="..."
+            />
+            <div class="carousel-caption-bottom text-center">
+              <a href="AboutUser.html" class="btn btn-primary px-4 py-2"
+                >Learn More</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- Tutup -->
+
+    <!-- Selamat Datang -->
+    <div class="welcome-section">
+      <h1 class="title">Selamat Datang di Dunia Buku!</h1>
+      <p class="subtitle">
+        Bahan bacaan literasi yang menarik tersedia untukmu.
+      </p>
+    </div>
+    <!-- Tutup -->
+
+    <!-- Video -->
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 85vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+      "
+    >
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        style="width: 100vw; height: 100vh; object-fit: cover"
+      >
+        <source src="promotionbook.mp4" type="video/mp4" />
+        Browser Anda tidak mendukung video.
+      </video>
+    </div>
+    <!-- Tutup -->
+
+    <!-- CARD 3 + 1 -->
+    <div class="container py-4">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div
+            class="book-card red d-flex justify-content-between align-items-center rounded-4"
+          >
+            <div class="text-start">
+              <h3>New <br />Releases.</h3>
+              <a
+                href="#"
+                class="btn"
+                style="background-color: #8b2427; color: white"
+                >Segera Hadir</a
+              >
+            </div>
+            <img src="cantikluka.jpg" alt="New Book" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="book-card green d-flex justify-content-between align-items-center rounded-4"
+          >
+            <div class="text-start">
+              <h3>Editor's<br />Picks.</h3>
+              <a
+                href="#"
+                class="btn"
+                style="background-color: #f5a623; color: white"
+                >Segera Hadir</a
+              >
+            </div>
+            <img src="buku_3.png" alt="Preorder Book" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="book-card blue d-flex justify-content-between align-items-center rounded-4"
+          >
+            <div class="text-start">
+              <h3>
+                Top <br />
+                Rated.
+              </h3>
+              <a
+                href="#"
+                class="btn"
+                style="background-color: #367dcf; color: white"
+                >Segera Hadir</a
+              >
+            </div>
+            <img src="buku_2.png" alt="Top Rated Book" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="book-card custom-promo d-flex justify-content-between align-items-center p-5 rounded-4"
+          >
+            <!-- Gambar Kiri -->
+            <img
+              src="BA_1.png"
+              class="ms-4"
+              alt="Books"
+              style="transform: scale(1.3); max-height: 200px"
+            />
+
+            <!-- Teks Tengah -->
+            <div class="text-center flex-fill">
+              <p class="text-white">Nikmati bacaan tanpa batas</p>
+              <h1 class="text-white">Jelajahi Koleksi Gratis</h1>
+              <a href="#" class="btn btn-dark mt-2"
+                >Lihat Detail di Halaman Utama</a
+              >
+            </div>
+
+            <!-- Gambar Kanan -->
+            <img
+              src="si putih tereliye.jpg"
+              class="ms-5"
+              alt="Books"
+              style="
+                margin-left: -20px;
+                transform: scale(1.2);
+                max-height: 200px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup -->
+
+    <!-- Card Buku -->
+    <div class="container py-4">
+      <h2 class="mb-4">Trending Now</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+        <!-- CARD 1 -->
+        <div class="col">
+          <div class="card h-100 text-center bord">
+            <img
+              src="Harry-Potter-and-the-Sorcerors-Stone-by-J.-K.-Rowling.webp"
+              class="card-img-top book-image"
+              alt="Harry Potter"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NOVEL</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">J.K. Rowling</div>
+              <div class="book-title">
+                Harry Potter And The Sorcerer's Stone
+              </div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">8,961 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisNovel1.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="Harry Potter_reliku kematian.jpg"
+              class="card-img-top book-image"
+              alt="Harry Potter"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NOVEL</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">J.K. Rowling</div>
+              <div class="book-title">Harry Potter And The Deathly Hallows</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">11,348 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisNovel2.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="Harry Potter_orde Phoenix.jpg"
+              class="card-img-top book-image"
+              alt="Harry Potter"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NOVEL</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">J.K. Rowling</div>
+              <div class="book-title">
+                Harry Potter And The Order Of The Phoenix
+              </div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">9,526 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisNovel3.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="harry potter_piala api.jpg"
+              class="card-img-top book-image"
+              alt="Harry Potter"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NOVEL</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">J.K. Rowling</div>
+              <div class="book-title">Harry Potter And The Goblet Of Fire</div>
+              <div class="book-rating"><br />★★★★★ 5.0</div>
+              <div class="book-readers">10,598 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisNovel4.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="Percy Jackson_II.jpg"
+              class="card-img-top book-image"
+              alt="Percy Jackson"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NOVEL</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">Rick Riordan</div>
+              <div class="book-title">
+                Percy Jackson & The Olympians-The Sea Of Monsters
+              </div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">8,638 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisNovel5.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="Percy Jackson_III.jpg"
+              class="card-img-top book-image"
+              alt="Percy Jackson"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NOVEL</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">Rick Riordan</div>
+              <div class="book-title">
+                Percy Jackson & The Olympians - The Titan's Curse
+              </div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">6,980 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisNovel6.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup book-container pertama -->
+
+    <!-- Card Buku 2 -->
+    <div class="container py-4">
+      <h2 class="mb-4">Non Teks</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+        <!-- CARD 1 -->
+        <div class="col">
+          <div class="card h-100 text-center bord">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/covernonteks/coverpusbuk/Karena_Anggrek_Ibu_Ing_Cover.png"
+              class="card-img-top book-image"
+              alt="Mother's Orchids"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NonTeks</span>
+              <span class="badge bg-success badge-custom">ENG</span>
+              <div class="book-author mb-0 mt-2">
+                Debby Lukito Goeyardi, Widyasari Hanaya
+              </div>
+              <div class="book-title">Mother's Orchids</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">188 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisBKT1.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/covernonteks/coverpusbuk/Apa_Itu_Ing_Cover.png"
+              class="card-img-top book-image"
+              alt="What's that?"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NonTeks</span>
+              <span class="badge bg-success badge-custom">ENG</span>
+              <div class="book-author mb-0 mt-2">
+                Laksmi Manohara, Aira Rumi
+              </div>
+              <div class="book-title">What's that?</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">147 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisBKT2.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/covernonteks/coverpusbuk/Naik_Naik_Kepuncak_Bukit_Ing_Cover.png"
+              class="card-img-top book-image"
+              alt="Up the Hill We Go!"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NonTeks</span>
+              <span class="badge bg-success badge-custom">ENG</span>
+              <div class="book-author mb-0 mt-2">Sarah Fauzia</div>
+              <div class="book-title">Up the Hill We Go!</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">162 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisBKT3.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/covernonteks/coverpusbuk/Mengejar_Haruto_Cover.png"
+              class="card-img-top book-image"
+              alt="Mengejar Haruto"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NonTeks</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">Dewi Cholidatul</div>
+              <div class="book-title">Mengejar Haruto</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">353 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisBKT4.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/covernonteks/coverpusbuk/Putri_Didalam_Hutan_Cover.png"
+              class="card-img-top book-image"
+              alt="
+              Putri Dalam Hutan"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NonTeks</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">Wiratu Emi</div>
+              <div class="book-title">Putri Dalam Hutan</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">1144 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisBKT5.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/covernonteks/coverpusbuk/Gambar_Lucu_Mika_Ing_Cover.png"
+              class="card-img-top book-image"
+              alt="Mika's Cute Picture"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">NonTeks</span>
+              <span class="badge bg-success badge-custom">ENG</span>
+              <div class="book-author mb-0 mt-2">Tyas Widjati</div>
+              <div class="book-title">Mika's Cute Picture</div>
+              <div class="book-rating">★★★★★ 5.0</div>
+              <div class="book-readers">200 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisBKT6.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup book-container kedua -->
+
+    <!-- Card Buku ketiga -->
+    <div class="container py-4">
+      <h2 class="mb-4">Pendidikan</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+        <!-- CARD 1 -->
+        <div class="col">
+          <div class="card h-100 text-center bord">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/thumbnail/Kelas1_Tema4_BS_press.png"
+              class="card-img-top book-image"
+              alt="Keluarga, Tema 4 kelas I"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Setiyo Iswoyo, Tandang Oktora, Lubna Assagaf
+              </div>
+              <div class="book-title">Keluarga, Tema 4 kelas I</div>
+              <br />
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">2906 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisSd1.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Matematika-BS-KLS-II-Cover.png"
+              class="card-img-top book-image"
+              alt="Matematika untuk SD/MI Kelas II"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Dara Retno, Wulan Rasfaniwaty
+              </div>
+              <div class="book-title">Matematika untuk SD/MI Kelas II</div>
+              <br />
+              <div class="book-rating">★★★★☆ 4.3</div>
+              <div class="book-readers">3485 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisSd2.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/IPAS-BS-KLS-III-Cover.png"
+              class="card-img-top book-image"
+              alt="Azzamine"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Amalia Fitri, Anggayudha A. Rasa, dkk.
+              </div>
+              <div class="book-title">
+                Ilmu Pengetahuan Alam dan Sosial untuk SD/MI Kelas III
+              </div>
+              <div class="book-rating">★★★★☆ 4.4</div>
+              <div class="book-readers">2593 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd3.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Bahasa-Indonesia-BS-KLS-III-Cover.png"
+              class="card-img-top book-image"
+              alt="
+              Bahasa Indonesia: Kawan Seiring untuk SD/MI Kelas III"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Anna Farida K., Helva Nurhidayah
+              </div>
+              <div class="book-title">
+                Bahasa Indonesia: Kawan Seiring untuk SD/MI Kelas III
+              </div>
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">3065 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd4.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/IPAS_BS_KLS_IV_Rev_Cover.png"
+              class="card-img-top book-image"
+              alt="Ilmu Pengetahuan Alam dan Sosial "
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Amalia Fitri, Aldilla Kusumawardhani, dkk.
+              </div>
+              <div class="book-title">
+                Ilmu Pengetahuan Alam dan Sosial untuk SD/MI Kelas IV (Edisi
+                Revisi)
+              </div>
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">2041 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd5.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Pendidikan-Pancasila-BS-KLS-VI-Cover.png"
+              class="card-img-top book-image"
+              alt="The Shadowers"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Mohamad Alwi Lutfi, Listia, Khristina Antariningsih
+              </div>
+              <div class="book-title">
+                Pendidikan Pancasila untuk SD/MI Kelas VI
+              </div>
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">1945 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd6.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup book-container ketiga -->
+
+    <!-- Author -->
+    <div class="container my-5">
+      <h2 class="fw-bold">Authors 🖊</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="author-card bg-lightblue text-center">
+            <img
+              src="TereLiye.png"
+              alt="Top Author"
+              class="img-fluid author-img mb-3"
+            />
+            <h4 class="fw-bold">Top Authors</h4>
+            <p>Tere Liye</p>
+            <p>
+              Salah satu penulis paling produktif dan laris di Indonesia.
+              Buku-bukunya seperti Hujan, Rindu, Bumi series sangat digemari,
+              terutama oleh generasi muda.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="author-card bg-lightyellow text-center">
+            <img
+              src="J.k rowling.png"
+              alt="Female Author"
+              class="img-fluid author-img mb-3"
+            />
+            <h4 class="fw-bold">Female Authors</h4>
+            <p>J.K. Rowling</p>
+            <p>
+              salah satu penulis paling terkenal di dunia, dikenal sebagai
+              pencipta seri Harry Potter. Karyanya menggabungkan sihir,
+              petualangan, dan nilai-nilai persahabatan, serta telah sukses
+              besar dalam buku, film, dan teater.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="author-card bg-lightpeach text-center">
+            <img
+              src="Rick_Riordan.png"
+              alt="Male Authors"
+              class="img-fluid author-img mb-3"
+            />
+            <h4 class="fw-bold">Male Authors</h4>
+            <p>Rick Riordan</p>
+            <p>
+              salah satu penulis, dikenal sebagai pencipta seri Percy Jackson &
+              the Olympians yang digemari oleh pembaca muda di seluruh dunia.
+              Karyanya memadukan mitologi, petualangan, dan humor, serta telah
+              sukses besar dalam bentuk buku, film, dan serial televisi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup -->
+
+    <!-- Card Buku Lanjutan -->
+    <!-- Section with Gradient Background -->
+    <div class="gradient-section py-5">
+      <div class="container text-center text-white mb-5">
+        <h4 class="fw-bold">Coba baca buku ini,</h4>
+        <h5 class="fw-semibold text-warning mb-4">Sepertinya cocok untukmu</h5>
+
+        <div class="container py-4">
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4"
+          >
+            <!-- CARD 1 -->
+            <div class="col">
+              <div class="card h-100 text-center bord">
+                <img
+                  src="https://static.buku.kemdikbud.go.id/content/thumbnail/Cover_Kelas_VII_PJOK_BS.png"
+                  class="card-img-top book-image"
+                  alt="Pendidikan Jasmani, Olahraga, dan Kesehatan Kelas VII"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary badge-custom">SMP</span>
+                  <span class="badge bg-success badge-custom">IND</span>
+                  <div class="book-author mb-0 mt-2">Muhajir</div>
+                  <div class="book-title">
+                    Pendidikan Jasmani, Olahraga, dan Kesehatan Kelas VII
+                  </div>
+                  <div class="book-rating">★★★★☆ 4.0</div>
+                  <div class="book-readers">2498 Pembaca</div>
+                  <!-- Button Selengkapnya -->
+                  <a href="SinopsisSMP1.html" class="btn btn-primary mt-4"
+                    >Selengkapnya</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col">
+              <div class="card h-100 text-center">
+                <img
+                  src="https://static.buku.kemdikbud.go.id/content/thumbnail/Cover_Kelas_VII_Prakarya_Sem_1_BS.png"
+                  class="card-img-top book-image"
+                  alt="Prakarya Semester 1 Kelas VII"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary badge-custom">SMP</span>
+                  <span class="badge bg-success badge-custom">IND</span>
+                  <div class="book-author mb-0 mt-2">Suci Paresti, dkk.</div>
+                  <div class="book-title">Prakarya Semester 1 Kelas VII</div>
+                  <div class="book-rating">★★★★☆ 4.0</div>
+                  <div class="book-readers">2124 Pembaca</div>
+                  <!-- Button Selengkapnya -->
+                  <br /><br /><a
+                    href="SinopsisSMP2.html"
+                    class="btn btn-primary mt-4"
+                    >Selengkapnya</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col">
+              <div class="card h-100 text-center">
+                <img
+                  src="https://static.buku.kemdikbud.go.id/content/thumbnail/Cover_Kelas_VII_Seni_Budaya_BS.png"
+                  class="card-img-top book-image"
+                  alt="Senbud"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary badge-custom">SMP</span>
+                  <span class="badge bg-success badge-custom">IND</span>
+                  <div class="book-author mb-0 mt-2">Eko Purnomo, dkk.</div>
+                  <div class="book-title">Seni Budaya Kelas VII</div>
+                  <div class="book-rating">★★★★☆ 4.0</div>
+                  <div class="book-readers">2648 Pembaca</div>
+                  <!-- Button Selengkapnya -->
+                  <br /><br /><a
+                    href="SinopsisSMP3.html"
+                    class="btn btn-primary mt-4"
+                    >Selengkapnya</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="col">
+              <div class="card h-100 text-center">
+                <img
+                  src="https://static.buku.kemdikbud.go.id/content/thumbnail/Cover_Kelas_VIII_B_Indonesia_BS.png"
+                  class="card-img-top book-image"
+                  alt="My Youth"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary badge-custom">SMP</span>
+                  <span class="badge bg-success badge-custom">IND</span>
+                  <div class="book-author mb-0 mt-2">E. Kosasih</div>
+                  <div class="book-title">Bahasa Indonesia Kelas VIII</div>
+                  <div class="book-rating">★★★★☆ 4.0</div>
+                  <div class="book-readers">2286 Pembaca</div>
+                  <!-- Button Selengkapnya -->
+                  <br /><br /><a
+                    href="SinopsisSMP4.html"
+                    class="btn btn-primary mt-4"
+                    >Selengkapnya</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="col">
+              <div class="card h-100 text-center">
+                <img
+                  src="https://static.buku.kemdikbud.go.id/content/thumbnail/Cover_Kelas_IX_B_Inggris_BG.png"
+                  class="card-img-top book-image"
+                  alt="Buku Guru Bahasa Inggris Kelas IX"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary badge-custom">SMP</span>
+                  <span class="badge bg-success badge-custom">IND</span>
+                  <div class="book-author mb-0 mt-2">Siti Wachidah, dkk.</div>
+                  <div class="book-title">
+                    Buku Guru Bahasa Inggris Kelas IX
+                  </div>
+                  <div class="book-rating">★★★★☆ 4.0</div>
+                  <div class="book-readers">720 Pembaca</div>
+                  <!-- Button Selengkapnya -->
+                  <br /><br /><a
+                    href="SinopsisSMP5.html"
+                    class="btn btn-primary mt-4"
+                    >Selengkapnya</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="col">
+              <div class="card h-100 text-center">
+                <img
+                  src="https://static.buku.kemdikbud.go.id/content/thumbnail/Cover_Kelas_XI_PPKn_BS.png"
+                  class="card-img-top book-image"
+                  alt="PPKN"
+                />
+                <div class="card-body">
+                  <span class="badge bg-primary badge-custom">SMP</span>
+                  <span class="badge bg-success badge-custom">IND</span>
+                  <div class="book-author mb-0 mt-2">
+                    Yusnawan Lubis Mohamad Sodeli
+                  </div>
+                  <div class="book-title">
+                    Pendidikan Pancasila dan Kewarganegaraan Kelas XI
+                  </div>
+                  <div class="book-rating">★★★★☆ 4.0</div>
+                  <div class="book-readers">1759 Pembaca</div>
+                  <!-- Button Selengkapnya -->
+                  <a href="SinopsisSMP6.html" class="btn btn-primary mt-4"
+                    >Selengkapnya</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog -->
+    <div
+      id="blog-section"
+      class="container my-5"
+      style="background-color: white"
+    >
+      <h4 class="fw-bold mb-4">Blog</h4>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 rounded-4">
+            <img
+              src="https://gramedia.com/blog/content/images/2025/02/Header-Ebook-Best-Seller-2025.png"
+              class="card-img-top rounded-top-4"
+              alt="Ebook Paling Laris"
+            />
+            <div class="card-body">
+              <h6 class="fw-semibold">
+                <a
+                  href="https://www.gramedia.com/blog/rekomendasi-e-book-best-seller-di-gramedia-digital-2025/"
+                  style="text-decoration: none; color: inherit"
+                >
+                  Rekomendasi E-book Best Seller di Gramedia Digital Bulan April
+                  2025
+                </a>
+              </h6>
+
+              <p class="text-muted small">
+                Hai, Grameds! Yuk temukan rekomendasi e-book best seller di
+                Gramedia Digital bulan April 2025 di sini!
+              </p>
+            </div>
+            <div
+              class="card-footer bg-transparent border-0 text-muted small ps-3 pb-3"
+            >
+              29 April 2025
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 rounded-4">
+            <img
+              src="https://goodstats.id/img/articles/original/2024/11/14/physical-book-or-e-book-menelusuri-preferensi-bacaan-gen-z-2024-2E84nUDlwO.jfif?p=articles-lg"
+              class="card-img-top rounded-top-4"
+              alt="Buku Paling Dicari"
+            />
+            <div class="card-body">
+              <h6 class="fw-semibold">
+                <a
+                  href="https://goodstats.id/article/physical-book-or-e-book-menelusuri-preferensi-bacaan-gen-z-2024-5Qb7l"
+                  style="text-decoration: none; color: inherit"
+                >
+                  Simak Preferensi Bacaan Gen Z 2024
+                </a>
+              </h6>
+
+              <p class="text-muted small">
+                Buku merupakan sumber informasi yang dapat menambah wawasan dan
+                pengetahuan. Di era digital ini, selain physical book, juga
+                terdapat e-book...
+              </p>
+            </div>
+            <div
+              class="card-footer bg-transparent border-0 text-muted small ps-3 pb-3"
+            >
+              10 November 2024
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 rounded-4">
+            <img
+              src="https://gov-web-sing.s3.ap-southeast-1.amazonaws.com/uploads/2025/3/Download%20-%20Women%20in%20GovTech%202024-1743269436667.jpg"
+              class="card-img-top rounded-top-4"
+              alt="E-Book"
+            />
+            <div class="card-body">
+              <h6 class="fw-semibold">
+                <a
+                  href="https://govinsider.asia/indo-en/article/download-e-book-govinsiders-women-in-govtech-2024"
+                  style="text-decoration: none; color: inherit"
+                >
+                  Download: E-book GovInsider's Women in GovTech 2024
+                </a>
+              </h6>
+
+              <p class="text-muted small">
+                Download: E-book GovInsider's Women in GovTech 2024 ... Panduan
+                yang menampilkan lebih dari 100 perempuan inspiratif di bidang
+                teknologi...
+              </p>
+            </div>
+            <div
+              class="card-footer bg-transparent border-0 text-muted small ps-3 pb-3"
+            >
+              01 April 2025
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="Logo1.png" alt="Logo Dunia Buku" />
+          <div>
+            <h1 style="font-weight: bold; color: #0b5ea2">Dunia Buku</h1>
+            <p>Tempat Bacaan Menarik</p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <p style="font-weight: bold; font-size: 15px">BUKU</p>
+          <ul style="font-size: 14px">
+            <li><a href="Novel.html">Buku Novel</a></li>
+            <li><a href="Sd.html">Buku SD</a></li>
+            <li><a href="SMP.html">Buku SMP</a></li>
+            <li><a href="SMA.html">Buku SMA</a></li>
+            <li><a href="BukuNonTeks.html">Buku Non Teks</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <p style="font-weight: bold; font-size: 15px">MENU LAINNYA</p>
+          <ul style="font-size: 14px">
+            <li><a href="HomeUser.html">Home</a></li>
+            <li><a href="AboutUser.html">About</a></li>
+            <li><a href="Novel.html">Category</a></li>
+            <li><a href="ContactUser.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <p style="font-weight: bold; font-size: 15px">ALAMAT</p>
+          <ul style="font-size: 14px">
+            <li>
+              <a href="https://maps.app.goo.gl/fAV5hFgdnEEpd2cX9"
+                ><i class="bi bi-geo-alt-fill me-2"></i> Palembang, Indonesia</a
+              >
+            </li>
+            <li>
+              <a href="https://wa.me/qr/CHPKRTYFCWFBP1"
+                ><i class="bi bi-telephone-fill me-2"></i> (+62) 89667815060</a
+              >
+            </li>
+            <li>
+              <a href="https://www.instagram.com/novelita_difani"
+                ><i class="bi bi-instagram me-2"></i> Dunia_Buku</a
+              >
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/novelitadifani"
+                ><i class="bi bi-linkedin me-2"></i> Novelita Difani</a
+              >
+            </li>
+            <li>
+              <a
+                ><i class="bi bi-envelope-fill me-2"></i>
+                novelitadifani56@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="color: #ffffff">
+          Copyright Dunia Buku © 2025 All Rights Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
