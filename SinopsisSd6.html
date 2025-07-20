@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DuniaBuku.com</title>
+    <link rel="icon" type="image/png" href="Logo1.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      /*Navbar*/
+      body {
+        padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+      }
+      .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+      }
+      .btn-signup {
+        background-color: #0048a5;
+        color: white;
+        border: 1px solid #0048a5;
+        transition: all 0.3s ease;
+      }
+
+      .btn-signup:hover,
+      .btn-signup:focus {
+        background-color: white;
+        color: #0048a5;
+        border-color: #0048a5;
+      }
+
+      .btn-login {
+        background-color: white;
+        color: #0048a5;
+        border: 1px solid #0048a5;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login:hover,
+      .btn-login:focus {
+        background-color: #0048a5;
+        color: white;
+        border-color: #0048a5;
+      }
+
+      /* Sinopsis */
+      body {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      .book-img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+      .book-info {
+        margin-top: 20px;
+      }
+      .rating {
+        color: gold;
+        font-size: 1.2rem;
+      }
+      .genre-tag {
+        display: inline-block;
+        background-color: #e5e5e5;
+        color: #333;
+        padding: 6px 12px;
+        margin: 6px 6px 0 0;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /*card*/
+      .book-image {
+        height: 250px;
+        object-fit: cover;
+      }
+      .badge-custom {
+        font-size: 0.8em;
+        margin-right: 5px;
+      }
+      .book-author {
+        font-size: 0.75rem;
+        color: #666;
+      }
+      .book-title {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-top: 0.25rem;
+      }
+      .book-rating {
+        color: #ff9900;
+        font-size: 0.85rem;
+      }
+      .book-readers {
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #fefefe;
+        border-top: 1px solid #ddd;
+        font-family: sans-serif;
+        color: #333;
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px 60px;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        flex: 1 1 300px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo img {
+        width: 80px;
+        margin-right: 20px;
+      }
+
+      .footer-logo h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .footer-logo p {
+        margin: 5px 0 0 0;
+        font-size: 14px;
+      }
+
+      .footer-column {
+        flex: 1 1 200px;
+        margin-bottom: 20px;
+      }
+
+      .footer-column h4 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 6px;
+      }
+
+      .footer-column a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .footer-column a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        background-color: #0b5ea2;
+        padding: 3px 0;
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="HomeUser.html">
+          <img src="Logo1.png" width="65" height="65" />
+          <span style="font-weight: bold; color: #0b5ea2">DUNIA BUKU</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="HomeUser.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUser.html">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Category
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Novel.html">Novel</a></li>
+                <li><a class="dropdown-item" href="Sd.html">SD</a></li>
+                <li><a class="dropdown-item" href="SMP.html">SMP</a></li>
+                <li><a class="dropdown-item" href="SMA.html">SMA</a></li>
+                <li>
+                  <a class="dropdown-item" href="BukuNonTeks.html"
+                    >Buku NonTeks</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item me-2">
+              <a class="nav-link" href="ContactUser.html">Contact</a>
+            </li>
+          </ul>
+          <a href="SignUpUser.html" class="btn btn-signup me-2">Sign Up</a>
+          <a href="LoginUser.html" class="btn btn-login">Log In</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Tutup -->
+
+    <!-- Header Section -->
+    <div
+      class="header-section position-relative"
+      style="height: 400px; overflow: hidden"
+    >
+      <img
+        src="BG Blue 1.jpg"
+        alt="Header Background"
+        class="w-100 h-100 object-fit-cover"
+        style="filter: brightness(0.6)"
+      />
+      <div
+        class="header-text position-absolute text-white"
+        style="bottom: 40px; left: 40px"
+      >
+        <h1 class="display-4 fw-bold">
+          Pendidikan Pancasila untuk SD/MI Kelas VI
+        </h1>
+        <p class="lead">
+          2023 | NonFiksi | 208 Halaman | SD | Bahasa: Indonesia
+        </p>
+      </div>
+    </div>
+
+    <!-- Sinopsis -->
+    <div class="container my-5">
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <img
+            src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Pendidikan-Pancasila-BS-KLS-VI-Cover.png"
+            alt="
+            Pendidikan Pancasila untuk SD/MI Kelas VI"
+            class="book-img"
+          />
+        </div>
+        <div class="col-md-8">
+          <h1>Pendidikan Pancasila untuk SD/MI Kelas VI</h1>
+          <p class="text-muted">
+            by
+            <strong>Mohamad Alwi Lutfi, Listia, Khristina Antariningsih</strong>
+          </p>
+          <div class="rating mb-2">★★★★☆ 4.0</div>
+          <h5 font-weignt="bold">Deskripsi</h5>
+          <p class="lead" style="text-align: justify; font-size: 18px">
+            Buku ini merupakan buku siswa yang dipersiapkan Pemerintah dalam
+            rangka implementasi Kurikulum 2013. Buku siswa ini disusun dan
+            ditelaah oleh berbagai pihak di bawah koordinasi Kementerian
+            Pendidikan dan Kebudayaan, dan dipergunakan dalam tahap awal
+            penerapan Kurikulum 2013. Buku ini merupakan “dokumen hidup” yang
+            senantiasa diperbaiki, diperbarui, dan dimutakhirkan sesuai dengan
+            dinamika kebutuhan dan perubahan zaman. Masukan dari berbagai
+            kalangan yang dialamatkan kepada penulis dan laman
+            http://buku.kemdikbud.go.id atau melalui email buku@kemdikbud.go.id
+            diharapkan dapat meningkatkan kualitas buku ini
+          </p>
+          <hr />
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Bahasa:</strong> Indonesia</p>
+              <p><strong>Penerbit:</strong> Pusat Perbukuan</p>
+              <p>
+                <strong>Penulis:</strong> Mohamad Alwi Lutfi, Listia, Khristina
+                Antariningsih
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>ISBN:</strong> 978-623-194-652-2</p>
+              <p><strong>Tanggal Rilis:</strong> 2023</p>
+              <p><strong>Halaman:</strong> 208 Halaman</p>
+            </div>
+          </div>
+          <a
+            href="https://drive.google.com/file/d/1b1kNMPjDK3cDlYghjs9obDhCoFx0uGsz/view?usp=sharing"
+            target="_blank"
+            class="btn btn-primary mt-3"
+            ><i class="bi bi-file-earmark-fill"></i>
+            PDF
+          </a>
+          <!-- Tags Genre -->
+          <div class="mt-4">
+            <span class="genre-tag">Pelajaran</span>
+            <span class="genre-tag">NonFiksi</span>
+            <span class="genre-tag">Bacaan Anak</span>
+            <span class="genre-tag">Pengetahuan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Buku -->
+    <div class="container py-4">
+      <h2 class="mb-4">Buku SD</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+        <!-- CARD 1 -->
+        <div class="col">
+          <div class="card h-100 text-center bord">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/thumbnail/Kelas1_Tema4_BS_press.png"
+              class="card-img-top book-image"
+              alt="Keluarga, Tema 4 kelas I"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Setiyo Iswoyo, Tandang Oktora, Lubna Assagaf
+              </div>
+              <div class="book-title">Keluarga, Tema 4 kelas I</div>
+              <br />
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">2906 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisSd1.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Matematika-BS-KLS-II-Cover.png"
+              class="card-img-top book-image"
+              alt="Matematika untuk SD/MI Kelas II"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Dara Retno, Wulan Rasfaniwaty
+              </div>
+              <div class="book-title">Matematika untuk SD/MI Kelas II</div>
+              <br />
+              <div class="book-rating">★★★★☆ 4.3</div>
+              <div class="book-readers">3485 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <br /><a href="SinopsisSd2.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/IPAS-BS-KLS-III-Cover.png"
+              class="card-img-top book-image"
+              alt="Azzamine"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Amalia Fitri, Anggayudha A. Rasa, dkk.
+              </div>
+              <div class="book-title">
+                Ilmu Pengetahuan Alam dan Sosial untuk SD/MI Kelas III
+              </div>
+              <div class="book-rating">★★★★☆ 4.4</div>
+              <div class="book-readers">2593 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd3.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Bahasa-Indonesia-BS-KLS-III-Cover.png"
+              class="card-img-top book-image"
+              alt="
+                Bahasa Indonesia: Kawan Seiring untuk SD/MI Kelas III"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Anna Farida K., Helva Nurhidayah
+              </div>
+              <div class="book-title">
+                Bahasa Indonesia: Kawan Seiring untuk SD/MI Kelas III
+              </div>
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">3065 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd4.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/IPAS_BS_KLS_IV_Rev_Cover.png"
+              class="card-img-top book-image"
+              alt="Ilmu Pengetahuan Alam dan Sosial "
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Amalia Fitri, Aldilla Kusumawardhani, dkk.
+              </div>
+              <div class="book-title">
+                Ilmu Pengetahuan Alam dan Sosial untuk SD/MI Kelas IV (Edisi
+                Revisi)
+              </div>
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">2041 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd5.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="https://static.buku.kemdikbud.go.id/content/image/coverteks/coverkurikulum21/Pendidikan-Pancasila-BS-KLS-VI-Cover.png"
+              class="card-img-top book-image"
+              alt="The Shadowers"
+            />
+            <div class="card-body">
+              <span class="badge bg-primary badge-custom">SD</span>
+              <span class="badge bg-success badge-custom">IND</span>
+              <div class="book-author mb-0 mt-2">
+                Mohamad Alwi Lutfi, Listia, Khristina Antariningsih
+              </div>
+              <div class="book-title">
+                Pendidikan Pancasila untuk SD/MI Kelas VI
+              </div>
+              <div class="book-rating">★★★★☆ 4.0</div>
+              <div class="book-readers">1945 Pembaca</div>
+              <!-- Button Selengkapnya -->
+              <a href="SinopsisSd6.html" class="btn btn-primary mt-4"
+                >Selengkapnya</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tutup book-container pertama -->
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="Logo1.png" alt="Logo Dunia Buku" />
+          <div>
+            <h1 style="font-weight: bold; color: #0b5ea2">Dunia Buku</h1>
+            <p>Tempat Bacaan Menarik</p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <p style="font-weight: bold; font-size: 15px">BUKU</p>
+          <ul style="font-size: 14px">
+            <li><a href="Novel.html">Buku Novel</a></li>
+            <li><a href="Sd.html">Buku SD</a></li>
+            <li><a href="SMP.html">Buku SMP</a></li>
+            <li><a href="SMA.html">Buku SMA</a></li>
+            <li><a href="BukuNonTeks.html">Buku Non Teks</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <p style="font-weight: bold; font-size: 15px">MENU LAINNYA</p>
+          <ul style="font-size: 14px">
+            <li><a href="HomeUser.html">Home</a></li>
+            <li><a href="AboutUser.html">About</a></li>
+            <li><a href="Novel.html">Category</a></li>
+            <li><a href="ContactUser.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <p style="font-weight: bold; font-size: 15px">ALAMAT</p>
+          <ul style="font-size: 14px">
+            <li>
+              <a href="https://maps.app.goo.gl/fAV5hFgdnEEpd2cX9"
+                ><i class="bi bi-geo-alt-fill me-2"></i> Palembang, Indonesia</a
+              >
+            </li>
+            <li>
+              <a href="https://wa.me/qr/CHPKRTYFCWFBP1"
+                ><i class="bi bi-telephone-fill me-2"></i> (+62) 89667815060</a
+              >
+            </li>
+            <li>
+              <a href="https://www.instagram.com/novelita_difani"
+                ><i class="bi bi-instagram me-2"></i> Dunia_Buku</a
+              >
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/novelitadifani"
+                ><i class="bi bi-linkedin me-2"></i> Novelita Difani</a
+              >
+            </li>
+            <li>
+              <a
+                ><i class="bi bi-envelope-fill me-2"></i>
+                novelitadifani56@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="color: #ffffff">
+          Copyright Dunia Buku © 2025 All Rights Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
